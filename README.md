@@ -1,1 +1,1 @@
-# planetary-seismology
+# Seismic Detection
