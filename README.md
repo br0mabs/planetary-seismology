@@ -39,10 +39,7 @@ We approached this challenge by the following methods:
     <li>
       Observing and testing with the provided training dataset, we noticed that the .mseed file contained a sampling rate and learned that there would be a reasonably large number of samples in a short amount of time, so we split each trace into small segments of 30 seconds. After splitting seismic traces into 30-second segments and extracting features (mean, max, skewness, etc.), we normalized the features and the target earthquake occurrence index. Using PyTorch, the LSTM model, with 64 hidden units, 2 layers, and a 0.2 dropout, was trained to predict the segment containing the earthquake. We used the Adam optimizer with MSELoss, training over 10 epochs with each trace processed independently, while allowing the model to learn the relationships between segments within each trace
     </li>
-    
     <img src="./readme_img/ml_pipeline.png">
-
-    
     <li>
       This approach allows the model to learn temporal dependencies between consecutive 30-second segments, which is crucial for capturing patterns that may indicate an upcoming earthquake. Also, by using an LSTM, the model can recognize subtle temporal patterns within the seismic data that simple feature-based models might miss. Ultimately, the goal is to improve the accuracy of predicting when an earthquake will occur by identifying the specific segment in which it starts. 
     </li>
