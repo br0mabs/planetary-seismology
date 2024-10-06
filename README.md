@@ -28,7 +28,7 @@ We approached this challenge by the following methods:
       Multi Prediction spectrogram analysis model: Same as the single prediction model, but to predict multiple seismic events, we check the spectrogram for power exceeding the 99th percentile, and make note of the times that these occur. We then do interval analysis on these time stamps, to find intervals where high energy readings are clustered, and mark it as a seismic event. This allows us to predict more than one seismic event in a single day. However, this causes false positives as even with denoising, noise can cause the model to incorrectly detect intervals of seismic activity
     </li>
     <li>
-      **Spectrogram cluster analysis:** This method was used in the case of the mars data, due to the fact that high-pass filter denoising was not sufficient for the model to act on clear signals. Instead, we denoise and then find clusters of high power readings, and mark clusters instead on the spectrogram. We then take the highest power cluster and mark that as a prediction. A next step is to extend to generate predictions for multiple seismic events for one day
+      <strong>Spectrogram cluster analysis:</strong> This method was used in the case of the mars data, due to the fact that high-pass filter denoising was not sufficient for the model to act on clear signals. Instead, we denoise and then find clusters of high power readings, and mark clusters instead on the spectrogram. We then take the highest power cluster and mark that as a prediction. A next step is to extend to generate predictions for multiple seismic events for one day
     </li>
   </ul>
   <li>Machine Learning Model</li>
