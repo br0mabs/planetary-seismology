@@ -30,6 +30,7 @@ We approached this challenge by the following methods:
       <strong>Spectrogram cluster analysis:</strong> This method was used in the case of the mars data, due to the fact that high-pass filter denoising was not sufficient for the model to act on clear signals. Instead, we denoise and then find clusters of high power readings, and mark clusters instead on the spectrogram. We then take the highest power cluster and mark that as a prediction. A next step is to extend to generate predictions for multiple seismic events for one day
     </li>
   </ul>
+  
 ### Machine Learning Model
   <ul>
     <li>
