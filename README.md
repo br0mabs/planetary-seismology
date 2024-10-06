@@ -50,3 +50,9 @@ We approached this challenge by the following methods:
     </li>
   </ul>
 
+## Developer Team
+- [Luna Nguyen](https://github.com/lunanguyen)
+- [Mathilda Lee](https://github.com/jkmathilda)  
+- [Monica Trinh](https://github.com/monmon0)
+- [Steven Gu](https://github.com/br0mabs)
+
