@@ -45,9 +45,6 @@ We approached this challenge by the following methods:
     <li>
       This approach allows the model to learn temporal dependencies between consecutive 30-second segments, which is crucial for capturing patterns that may indicate an upcoming earthquake. Also, by using an LSTM, the model can recognize subtle temporal patterns within the seismic data that simple feature-based models might miss. Ultimately, the goal is to improve the accuracy of predicting when an earthquake will occur by identifying the specific segment in which it starts. 
     </li>
-    <li>
-      The accuracy of our LSTM model isn't as high as we expected, and one potential factor is that this method may be more sensitive to noise in the seismic data. Despite using the same noise cleaning techniques as in our non-machine learning models, which showed higher accuracy, the LSTM model may still be picking up irrelevant signals that affect its performance. Adjustments to the feature extraction process, segment length and tuning hyperparameters like hidden size, learning rate, and dropout rate,  could improve the model’s accuracy. 
-    </li>
   </ul>
 
 ## Developer Team
