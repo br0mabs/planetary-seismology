@@ -28,7 +28,7 @@ We approached this challenge by the following methods:
       Multi Prediction spectrogram analysis model: Same as the single prediction model, but to predict multiple seismic events, we check the spectrogram for power exceeding the 99th percentile, and make note of the times that these occur. We then do interval analysis on these time stamps, to find intervals where high energy readings are clustered, and mark it as a seismic event. This allows us to predict more than one seismic event in a single day. However, this causes false positives as even with denoising, noise can cause the model to incorrectly detect intervals of seismic activity
     </li>
     <li>
-      **Spectrogram cluster analysis:** This method was used in the case of the mars data, due to the fact that high-pass filter denoising was not sufficient for the model to act on clear signals. Instead, we denoise and then find clusters of high power readings, and mark clusters instead on the spectrogram. We then take the highest power cluster and mark that as a prediction. A next step is to extend to generate predictions for multiple seismic events for one day
+      <b>Spectrogram cluster analysis:</b> This method was used in the case of the mars data, due to the fact that high-pass filter denoising was not sufficient for the model to act on clear signals. Instead, we denoise and then find clusters of high power readings, and mark clusters instead on the spectrogram. We then take the highest power cluster and mark that as a prediction. A next step is to extend to generate predictions for multiple seismic events for one day
     </li>
   </ul>
   <li>Machine Learning Model</li>
@@ -37,7 +37,13 @@ We approached this challenge by the following methods:
       An LSTM (Long Short-Term Memory) model is a highly suitable approach for the seismic event detection challenge for several reasons. Firstly, seismic data is a time-series signal, where each data point is dependent on the previous points. LSTM models are specifically designed to handle time-series data as they can maintain information across different time steps. In addition, LSTM models excel at capturing these long-term dependencies, unlike traditional RNNs (Recurrent Neural Networks), which suffer from vanishing gradients and struggle to retain information over longer periods. 
     </li>
     <li>
-      
+      Observing and testing with the provided training dataset, we noticed that the .mseed file contained a sampling rate and learned that there would be a reasonably large number of samples in a short amount of time, so we split each trace into small segments of 30 seconds. After splitting seismic traces into 30-second segments and extracting features (mean, max, skewness, etc.), we normalized the features and the target earthquake occurrence index. Using PyTorch, the LSTM model, with 64 hidden units, 2 layers, and a 0.2 dropout, was trained to predict the segment containing the earthquake. We used the Adam optimizer with MSELoss, training over 10 epochs with each trace processed independently, while allowing the model to learn the relationships between segments within each trace
+    </li>
+    <li>
+      This approach allows the model to learn temporal dependencies between consecutive 30-second segments, which is crucial for capturing patterns that may indicate an upcoming earthquake. Also, by using an LSTM, the model can recognize subtle temporal patterns within the seismic data that simple feature-based models might miss. Ultimately, the goal is to improve the accuracy of predicting when an earthquake will occur by identifying the specific segment in which it starts. 
+    </li>
+    <li>
+      The accuracy of our LSTM model isn't as high as we expected, and one potential factor is that this method may be more sensitive to noise in the seismic data. Despite using the same noise cleaning techniques as in our non-machine learning models, which showed higher accuracy, the LSTM model may still be picking up irrelevant signals that affect its performance. Adjustments to the feature extraction process, segment length and tuning hyperparameters like hidden size, learning rate, and dropout rate,  could improve the model’s accuracy. 
     </li>
   </ul>
 </ol>
