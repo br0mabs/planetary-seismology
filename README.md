@@ -3,7 +3,7 @@ We developed algorithmic and machine learning models to identify seismic events 
 
 ## Additional data
 This Google Drive contains data that we used for our project. 
-https://docs.google.com/document/d/11yPrLIqcA9FDIywRGnuaOL1iYACTb3Usb5KmRUoA8ms/edit?usp=sharing
+[https://docs.google.com/document/d/11yPrLIqcA9FDIywRGnuaOL1iYACTb3Usb5KmRUoA8ms/edit?usp=sharing](https://drive.google.com/drive/folders/1UMmU471yz6-G3Kaj_hpo8AOv1dRT_c5i?usp=sharing)
 
 ## Project Details
 Planetary seismology missions face significant challenges with power limitations, particularly when transmitting continuous seismic data from distant planets back to Earth. Given that only a fraction of the data is scientifically useful, optimizing data transmission is critical. This project aims to address this issue by developing a computer program capable of distinguishing between noise and scientifically valuable seismic signals. By analyzing real data from the Apollo missions and the Mars Interior Exploration using Seismic Investigations, the goal is to identify and extract seismic events, minimizing the need to send back unnecessary information. 
